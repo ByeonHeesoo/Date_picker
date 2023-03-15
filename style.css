@@ -1,0 +1,164 @@
+:root {
+  --calendar-size: 600px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+h1 {
+  color: rgb(253, 108, 83);
+  font-weight: 200;
+  margin-bottom: 20px;
+}
+
+.input-container {
+  position: relative;
+}
+
+.input {
+  width: 200px;
+  height: 30px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-weight: 700;
+}
+
+.calendar {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: var(--calendar-size);
+  height: var(--calendar-size);
+  border: 1px solid black;
+  border-radius: 10px;
+  opacity: 0;
+  visibility: hidden;
+  font-size: calc(var(--calendar-size) / 40);
+}
+
+.calendar.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.month-year {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 100;
+  color: #fff;
+}
+
+.month-year span {
+  font-size: 1.5rem;
+}
+
+.calendar-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(118, 201, 118);
+  border-radius: 10px 10px 0 0;
+}
+
+.nav-btn {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #fff;
+  border: none;
+  font-size: 1rem;
+  line-height: 34px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.calendar-grid {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin: 25px 0 10px;
+}
+
+.day {
+  text-align: center;
+  opacity: 0.5;
+}
+
+.dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  flex-grow: 1;
+}
+
+.date {
+  padding: 15px;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.day:nth-child(7n + 1),
+.date:nth-child(7n + 1) {
+  color: red;
+}
+
+.other {
+  opacity: 0.3;
+}
+
+.today {
+  position: relative;
+}
+
+.today::before {
+  content: '';
+  padding: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  width: 2rem;
+  height: 2rem;
+  display: block;
+  border: 1px solid rgb(118, 201, 118);
+  border-radius: 50%;
+}
+
+.clickDate {
+  position: relative;
+  color: #fff;
+
+}
+
+.clickDate::before {
+  content: '';
+  padding: 10px;
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 2rem;
+  height: 2rem;
+  display: block;
+  background-color: rgb(118, 201, 118);
+  color: #fff;
+  border-radius: 50%;
+}
